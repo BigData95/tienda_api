@@ -1,7 +1,5 @@
 """ Operations needed for the endpoints of the resource: products"""
 
-# DB
-from app.main import db
 # Models
 from app.main.model.models import Product
 #Utils

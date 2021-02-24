@@ -1,14 +1,13 @@
 
 from flask import request
-from flask_restx import Resource, reqparse
+from flask_restx import Resource
 from ..util.dto import StoreDto, ProductDto
 from ..service.store_service import (
-    get_all_stores, 
-    save_new_store, 
+    get_all_stores,
+    save_new_store,
     save_new_store_product,
-    user_search_product 
-    )
-
+    user_search_product
+)
 
 
 # Dto's
@@ -18,15 +17,12 @@ _product = ProductDto.product
 _stock = ProductDto.stock
 
 
-
-
-
 @api.route('/')
 class StoreList(Resource):
     """" Base store URI """
     @api.doc('List of all avaliable products')
     @api.marshal_list_with(_store, envelope='data')
-    def get(self):
+    def get():
         """List all stores"""
         return get_all_stores()
 
@@ -53,7 +49,7 @@ class StoreProducts(Resource):
     def post(self, name):
         """ "C: Poder agregar/asociar inventario a una tienda" """
         data = request.json
-        return save_new_store_product(data=data,name=name)
+        return save_new_store_product(data=data, name=name)
 
 
 @api.route('/<string:store_name>/product/<product_name>/search/<search_term>')
