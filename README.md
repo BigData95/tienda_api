@@ -26,7 +26,9 @@ Ejecutar:
  
 Es necesario hacer las migraciones iniciales en la base de datos.
 > python manage.py db init
+
 > python manage.py db migrate
+
 > python manage.py db upgrade
 
 
