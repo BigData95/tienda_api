@@ -22,7 +22,7 @@ class StoreList(Resource):
     """" Base store URI """
     @api.doc('List of all avaliable products')
     @api.marshal_list_with(_store, envelope='data')
-    def get():
+    def get(self):
         """List all stores"""
         return get_all_stores()
 
