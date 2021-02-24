@@ -55,7 +55,7 @@ class StoreProducts(Resource):
 @api.route('/<string:store_name>/product/<product_name>/search/<search_term>')
 @api.param('store_name', 'unique store name')
 @api.param('product_name', 'unique product name')
-@api.param('search_term', 'term use for seach')
+@api.param('search_term', 'term use for seach, most be a number')
 @api.response(404, 'Resource not found')
 class UserSearch(Resource):
     def get(self, store_name, product_name,  search_term):

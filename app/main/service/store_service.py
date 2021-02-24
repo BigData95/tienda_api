@@ -105,8 +105,12 @@ def user_search_product(store_name, product_name, search_term):
         return response_object, 409
     print(stock.quantity)
     print(search_term)
-    if int(stock.quantity) >= int(search_term):
-        return {"Result": "Suficiente stock"}
+    try: 
+        if int(stock.quantity) >= int(search_term):
+            return {"Result": "Suficiente stock"}
+    except Exception as e:
+        return {'Error': 'Invalid type for search term, try a number'}
+    
     return {"Result": "Insuficiente stock"}
 
 
